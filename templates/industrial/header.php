@@ -144,104 +144,29 @@ IncludeTemplateLangFile(__FILE__);
                 <button class="navbar-toggler" type="button">
                     <span class="menu-lines"><span></span></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="mainNavigation">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav__item with-dropdown">
-                            <a href="index.html" class="dropdown-toggle nav__item-link active">Home</a>
-                            <i class="fas fa-angle-down" data-toggle="dropdown"></i>
-                            <ul class="dropdown-menu">
-                                <li class="nav__item"><a href="index.html" class="nav__item-link">Home Moderm</a></li>
-                                <!-- /.nav-item -->
-                                <li class="nav__item"><a href="home-classic.html" class="nav__item-link">Home
-                                        classic</a></li>
-                                <!-- /.nav-item -->
-                                <li class="nav__item"><a href="home-architecture.html" class="nav__item-link">Home
-                                        Architecture</a>
-                                </li>
-                                <!-- /.nav-item -->
-                            </ul><!-- /.dropdown-menu -->
-                        </li><!-- /.nav-item -->
-                        <li class="nav__item with-dropdown">
-                            <a href="about-us.html" class="dropdown-toggle nav__item-link">Company</a>
-                            <i class="fas fa-angle-down" data-toggle="dropdown"></i>
-                            <ul class="dropdown-menu">
-                                <li class="nav__item"><a href="about-us.html" class="nav__item-link">About Us</a></li>
-                                <!-- /.nav-item -->
-                                <li class="nav__item"><a href="core-values.html" class="nav__item-link">core values</a>
-                                </li>
-                                <!-- /.nav-item -->
-                                <li class="nav__item"><a href="leadership-team.html" class="nav__item-link">Leadership
-                                        Team</a></li>
-                                <!-- /.nav-item -->
-                                <li class="nav__item"><a href="pricing.html" class="nav__item-link">Pricing & Plans</a>
-                                </li>
-                                <!-- /.nav-item -->
-                                <li class="nav__item"><a href="faqs.html" class="nav__item-link">Help & FAQs</a></li>
-                                <!-- /.nav-item -->
-                                <li class="nav__item"><a href="careers.html" class="nav__item-link">careers</a></li>
-                                <!-- /.nav-item -->
-                            </ul><!-- /.dropdown-menu -->
-                        </li><!-- /.nav-item -->
-                        <li class="nav__item with-dropdown">
-                            <a href="services.html" class="dropdown-toggle nav__item-link">Services</a>
-                            <i class="fas fa-angle-down" data-toggle="dropdown"></i>
-                            <ul class="dropdown-menu">
-                                <li class="nav__item"><a href="services-single-service.html" class="nav__item-link">Construction
-                                        Manage</a></li>
-                                <!-- /.nav-item -->
-                                <li class="nav__item"><a href="services-single-service.html" class="nav__item-link">Construction
-                                        Consultants</a></li>
-                                <!-- /.nav-item -->
-                                <li class="nav__item"><a href="services-single-service.html" class="nav__item-link">Architecture
-                                        &
-                                        Building</a></li>
-                                <!-- /.nav-item -->
-                                <li class="nav__item"><a href="services-single-service.html" class="nav__item-link">Home
-                                        Renovations</a></li>
-                                <!-- /.nav-item -->
-                                <li class="nav__item"><a href="services-single-service.html" class="nav__item-link">Tiling
-                                        &
-                                        Painiting</a></li>
-                                <!-- /.nav-item -->
-                                <li class="nav__item"><a href="services-single-service.html" class="nav__item-link">Interior
-                                        Design</a></li>
-                                <!-- /.nav-item -->
-                            </ul><!-- /.dropdown-menu -->
-                        </li><!-- /.nav-item -->
-                        <li class="nav__item with-dropdown">
-                            <a href="projects-grid.html" class="dropdown-toggle nav__item-link">Projects</a>
-                            <i class="fas fa-angle-down" data-toggle="dropdown"></i>
-                            <ul class="dropdown-menu">
-                                <li class="nav__item"><a href="projects-grid.html" class="nav__item-link">projects
-                                        grid</a></li>
-                                <!-- /.nav-item -->
-                                <li class="nav__item"><a href="projects-standard.html" class="nav__item-link">projects
-                                        standard</a>
-                                </li><!-- /.nav-item -->
-                                <li class="nav__item"><a href="projects-tiles.html" class="nav__item-link">projects
-                                        tiles</a>
-                                </li><!-- /.nav-item -->
-                                <li class="nav__item"><a href="projects-single-project.html" class="nav__item-link">projects
-                                        single</a></li><!-- /.nav-item -->
-                            </ul><!-- /.dropdown-menu -->
-                        </li><!-- /.nav-item -->
-                        <li class="nav__item with-dropdown">
-                            <a href="blog.html" class="dropdown-toggle nav__item-link">News & Media</a>
-                            <i class="fas fa-angle-down" data-toggle="dropdown"></i>
-                            <ul class="dropdown-menu">
-                                <li class="nav__item">
-                                    <a href="blog.html" class="nav__item-link">Blog Grid</a>
-                                </li><!-- /.nav-item -->
-                                <li class="nav__item">
-                                    <a href="blog-single-post.html" class="nav__item-link">Single Blog Post</a>
-                                </li><!-- /.nav-item -->
-                            </ul><!-- /.dropdown-menu -->
-                        </li><!-- /.nav-item -->
-                        <li class="nav__item">
-                            <a href="contacs.html" class="nav__item-link">Contact Us</a>
-                        </li><!-- /.nav-item -->
-                    </ul><!-- /.navbar-nav -->
+
+                    <? $APPLICATION->IncludeComponent("bitrix:menu", "topmenu", array(
+                        "ALLOW_MULTI_SELECT"    => "N",    // Разрешить несколько активных пунктов одновременно
+                        "CHILD_MENU_TYPE"       => "left",    // Тип меню для остальных уровней
+                        "DELAY"                 => "N",    // Откладывать выполнение шаблона меню
+                        "MAX_LEVEL"             => "1",    // Уровень вложенности меню
+                        "MENU_CACHE_GET_VARS"   => array(    // Значимые переменные запроса
+                            0 => "",
+                        ),
+                        "MENU_CACHE_TIME"       => "3600",    // Время кеширования (сек.)
+                        "MENU_CACHE_TYPE"       => "N",    // Тип кеширования
+                        "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
+                        "ROOT_MENU_TYPE"        => "top",    // Тип меню для первого уровня
+                        "USE_EXT"               => "N",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+                    ),
+                        false
+                    ); ?>
+
+
                 </div><!-- /.navbar-collapse -->
+
                 <div class="header-actions d-flex align-items-center">
                     <button type="button" class="action-btn__search"><i class="fas fa-search"></i></button>
                     <a href="request-quote.html" class="btn btn__primary action-btn__request">
@@ -251,4 +176,14 @@ IncludeTemplateLangFile(__FILE__);
             </div><!-- /.container -->
         </nav><!-- /.navabr -->
     </header><!-- /.Header -->
+    <?
+    if ($APPLICATION->GetCurPage(false) !== '/'):
+        $APPLICATION->IncludeComponent("bitrix:breadcrumb", "breadcrumbs-industrial", Array(
+	"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+		"SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+		"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
+	),
+	false
+);
+    endif; ?>
 						
