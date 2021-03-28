@@ -169,6 +169,7 @@ IncludeTemplateLangFile(__FILE__);
 
                 <div class="header-actions d-flex align-items-center">
                     <button type="button" class="action-btn__search"><i class="fas fa-search"></i></button>
+
                     <a href="request-quote.html" class="btn btn__primary action-btn__request">
                         <span>Request A Quote</span><i class="icon-arrow-right"></i>
                     </a>
@@ -178,12 +179,15 @@ IncludeTemplateLangFile(__FILE__);
     </header><!-- /.Header -->
     <?
     if ($APPLICATION->GetCurPage(false) !== '/'):
-        $APPLICATION->IncludeComponent("bitrix:breadcrumb", "breadcrumbs-industrial", Array(
-	"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
-		"SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
-		"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
-	),
-	false
-);
+        $APPLICATION->IncludeComponent("bitrix:breadcrumb", "breadcrumbs-industrial", array(
+            "PATH"       => "",
+            // Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+            "SITE_ID"    => "s1",
+            // Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+            "START_FROM" => "0",
+            // Номер пункта, начиная с которого будет построена навигационная цепочка
+        ),
+            false
+        );
     endif; ?>
 						

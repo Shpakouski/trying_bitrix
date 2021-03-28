@@ -156,10 +156,14 @@
 
 <div class="search-popup">
     <i class="search-popup__close">&times;</i>
-    <form class="search-popup__form">
-        <input type="text" class="search-popup__form__input" placeholder="Type Words Then Enter">
-        <button class="search-popup__btn"><i class="fas fa-search"></i></button>
-    </form>
+    <? $APPLICATION->IncludeComponent("bitrix:search.form", "searchForm", array(
+        "PAGE"        => "#SITE_DIR#search/index.php",
+        // Страница выдачи результатов поиска (доступен макрос #SITE_DIR#)
+        "USE_SUGGEST" => "N",
+        // Показывать подсказку с поисковыми фразами
+    ),
+        false
+    ); ?>
 </div><!-- /. search-popup -->
 
 </div><!-- /.wrapper -->
